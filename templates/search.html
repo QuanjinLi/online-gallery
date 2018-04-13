@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search</title>
+</head>
+<body>
+    <p></p>
+    <a href="/index">Index</a>
+    <a href="/gallery">Gallery</a>
+    <p></p>
+     <form action="/search/" method="post">
+         <input type="text" name="search">
+         <select name="kind">
+             <option value='type'>type</option>
+             <option value='artist_name'>artist name</option>
+             <option value='location'>location</option>
+             <option value='country'>country</option>
+             <option value='birth_year'>birth year</option>
+         </select>
+         <input type="submit" value="search">
+     </form>
+     {% if 0 != typelen %}
+         {% for line in type %}
+             <p><b>Title</b>: {{line.title}}</p>
+             <a href="/details?image_id={{ line.image_id }}">
+                 <img src={{ line.link }}></a>
+             <a href="/delete?kind={{ 2 }}&image_id={{ line.image_id }}" style="text-decoration: none">Delete this picture</a>
+             <hr style=" height:2px;border:none;border-top:2px dotted #185598;" />
+         {% endfor %}
+     {% endif %}
+     {% if 0 != artlen %}
+         {% for line in art %}
+             <p><b>Title</b>: {{line.title}}</p>
+             <a href="/details?image_id={{ line.image_id }}">
+                 <img src={{ line.link }}></a>
+             <a href="/delete?kind={{ 2 }}&image_id={{ line.image_id }}" style="text-decoration: none">Delete this picture</a>
+             <hr style=" height:2px;border:none;border-top:2px dotted #185598;" />
+         {% endfor %}
+     {% endif %}
+     {% if 0 != loclen %}
+         {% for line in loc %}
+             <p><b>Title</b>: {{line.title}}</p>
+             <a href="/details?image_id={{ line.image_id }}">
+                 <img src={{ line.link }}></a>
+             <a href="/delete?kind={{ 2 }}&image_id={{ line.image_id }}" style="text-decoration: none">Delete this picture</a>
+             <hr style=" height:2px;border:none;border-top:2px dotted #185598;" />
+         {% endfor %}
+     {% endif %}
+     {% if 0 != coulen %}
+         {% for line in cou %}
+             <p>Name: {{ line.name }}</p>
+             <p>Birth Year: {{ line.birth_year }}</p>
+             <p>Country: {{ line.country }}</p>
+             <p>Description: {{ line.description }}</p>
+             <hr style=" height:2px;border:none;border-top:2px dotted #185598;" />
+         {% endfor %}
+     {% endif %}
+     {% if 0 != birlen %}
+         {% for line in bir %}
+             <p>Name: {{ line.name }}</p>
+             <p>Birth Year: {{ line.birth_year }}</p>
+             <p>Country: {{ line.country }}</p>
+             <p>Description: {{ line.description }}</p>
+             <hr style=" height:2px;border:none;border-top:2px dotted #185598;" />
+         {% endfor %}
+     {% endif %}
+
+</body>
+</html>

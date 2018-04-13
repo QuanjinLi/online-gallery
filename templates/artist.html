@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Artist</title>
+</head>
+<body>
+    <p></p>
+    <a href="/index">Index</a>
+    <a href="/gallery">Gallery</a>
+    <p></p>
+     <form action="/search" method="get">
+          <input type="text" name="search">
+     <input type="submit" value="search">
+     </form>
+    <br>
+    <a href="/details?image_id={{ iid }}" style="text-decoration: none">Back</a>
+     <h1>Artist Details</h1>
+     <p>Name: {{ art.name }}</p>
+     <p>Birth Year: {{ art.birth_year }}</p>
+     <p>Country: {{ art.country }}</p>
+     <p>Description: {{ art.description }}</p>
+     <a href="/modifyartist/?id={{ art.artist_id }}&iid={{ iid }}">Modify Artist</a>
+
+</body>
+</html>

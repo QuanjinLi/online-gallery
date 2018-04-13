@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Image</title>
+</head>
+<body>
+    <a href="/index">Index</a>
+    <a href="/gallery">Gallery</a>
+     <form action="/insert/?kind={{ 2 }}&gid={{ gid }}" method="post">
+         title: <input type="text" name="title"><br>
+         link: <input type="text" name="link"><br>
+         artist_name:
+         <select name="artist_id">
+             <option value='-1'></option>
+             <option value='-1'>unknown</option>
+             {% for ar in art %}
+             <option value={{ ar.artist_id }}>{{ ar.name }}</option>
+             {% endfor %}
+         </select> <a href="/newartist" target="_blank">Create Artist</a> <br>
+         year: <input type="text" name="year"><br>
+         type: <input type="text" name="type"><br>
+         width: <input type="text" name="width"><br>
+         height: <input type="text" name="height"><br>
+         location: <input type="text" name="location"><br>
+         description: <input type="text" name="description"><br>
+     <input type="submit" value="submit">
+     </form>
+</body>
+</html>

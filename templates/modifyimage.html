@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Modify Image</title>
+</head>
+<body>
+    <p></p>
+    <a href="/index">Index</a>
+    <a href="/gallery">Gallery</a>
+    <p></p>
+     <form action="/search/" method="post">
+         <input type="text" name="search">
+         <select name="kind">
+             <option value='type'>type</option>
+             <option value='artist_name'>artist name</option>
+             <option value='location'>location</option>
+             <option value='country'>country</option>
+             <option value='birth_year'>birth year</option>
+         </select>
+     <input type="submit" value="search">
+     </form>
+     <p></p>
+    <a href="/details?image_id={{ iid }}" style="text-decoration: none">Back</a>
+     <p></p>
+     <form action="/update/?kind={{ 2 }}&iid={{ iid }}" method="post"><br>
+         title: <input type="text" name="title"><br>
+         link: <input type="text" name="link"><br>
+         artist_name:
+         <select name="artist_id">
+             <option value=''></option>
+             <option value='-1'>unknown</option>
+             {% for ar in art %}
+             <option value={{ ar.artist_id }}>{{ ar.name }}</option>
+             {% endfor %}
+         </select> <a href="/newartist" target="_blank">Create Artist</a> <br>
+         year: <input type="text" name="year"><br>
+         type: <input type="text" name="type"><br>
+         width: <input type="text" name="width"><br>
+         height: <input type="text" name="height"><br>
+         location: <input type="text" name="location"><br>
+         description: <input type="text" name="description"><br>
+     <input type="submit" value="submit">
+     </form>
+</body>
+</html>

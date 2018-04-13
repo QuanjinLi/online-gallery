@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <p></p>
+    <a href="/index">Index</a>
+    <a href="/gallery">Gallery</a>
+    <p></p>
+     <form action="/search/" method="post">
+         <input type="text" name="search">
+         <select name="kind">
+             <option value='type'>type</option>
+             <option value='artist_name'>artist name</option>
+             <option value='location'>location</option>
+             <option value='country'>country</option>
+             <option value='birth_year'>birth year</option>
+         </select>
+     <input type="submit" value="search">
+     </form>
+    {% if 1 == info %}
+        <p>Success</p>
+    {% else %}
+        <p>Fail</p>
+        <p>Your input is illegal</p>
+    {% endif %}
+    {% if 2 == kind %}
+        <a href="/images?&id={{ gid }}" style="text-decoration: none">Back</a>
+    {% endif %}
+    {% if 1 == kind %}
+        <a href="/gallery" style="text-decoration: none">Back</a>
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Image</title>
+</head>
+
+    <a href="/index">Index</a>
+    <a href="/gallery">Gallery</a>
+     <p></p>
+     <p>Gallery Name: {{ ginfo.name }}</p>
+     <p>Gallery Description: {{ ginfo.description }}</p>
+     <a href="/modifygallery/?id={{ ginfo.gallery_id }}" style="text-decoration: none">Modify Gallery</a>
+     <a href="/newimage?id={{ gid }}" style="text-decoration: none">Add Image</a>
+     <h1>Image Information</h1>
+     {% if 0 == info %}
+         <p>There is no images in this gallery</p>
+     {% else %}
+         {% for line in info %}
+             <p><b>Title</b>: {{line.title}}</p>
+             <a href="/details?image_id={{ line.image_id }}">
+                 <img src={{ line.link }}></a>
+             <a href="/delete?kind={{ 2 }}&image_id={{ line.image_id }}&gallery_id={{ line.gallery_id }}" style="text-decoration: none">Delete this picture</a>
+             <hr style=" height:2px;border:none;border-top:2px dotted #185598;" />
+         {% endfor %}
+     {% endif %}
+
+</body>
+</html>

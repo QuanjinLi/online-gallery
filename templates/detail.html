@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Detail</title>
+</head>
+<body>
+    <p></p>
+    <a href="/index">Index</a>
+    <a href="/gallery">Gallery</a>
+    <p></p>
+     <form action="/search" method="get">
+          <input type="text" name="search">
+     <input type="submit" value="search">
+     </form>
+    <br>
+     <a href="/images/?id={{ infoi.gallery_id }}" style="text-decoration: none">Back</a>
+     <h1>Image Details</h1>
+     <p><b>Title</b>: {{ infoi.title }}</p>
+     <img src={{ infoi.link }}>
+     <p>year: {{ infod.year }}</p>
+     {% if len == 0 %}
+     artist_name: unknown
+     {% else %}
+     <p><a href="/artist/?id={{ art.artist_id }}&iid={{ infoi.image_id }}" style="text-decoration: none">artist_name: {{ art.name }}</a>
+     {% endif %}</p>
+     <p>type: {{ infod.type }}</p>
+     <p>width: {{ infod.width }}</p>
+     <p>height: {{ infod.height }}</p>
+     <p>location: {{ infod.location }}</p>
+     <p>description: {{ infod.description }}</p>
+     <a href="/modifyimage/?id={{ infoi.image_id }}" style="text-decoration: none">Modify Image</a>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WebSearch</title>
+</head>
+<body>
+    <p></p>
+    <p></p>
+     <form action="/webSearch/" method="post">
+         <input type="text" name="search">
+         <input type="submit" value="search">
+     </form>
+    {% for wr in out %}
+
+        <a href="http://{{ wr.webLink }}">{{ wr.fileName }}</a>
+
+        <p>{{ wr.snippet }}</p>
+        <p></p>
+    {% endfor %}
+
+</body>
+</html>
